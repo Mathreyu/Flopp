@@ -50,7 +50,6 @@ class VideoGamesAdapter(
                 .load(item.backgroundImage)
                 .apply(glideOptions)
                 .into(gameImage)
-//                .onLoadFailed(resources.getDrawable(R.drawable.ic_launcher_background, null))
 
             itemView.setOnClickListener {
                 action(item)

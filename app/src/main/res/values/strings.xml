@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Flopp</string>
+    <string name="no_connection_error_message">No data stored and no internet connection</string>
+    <string name="no_connection_error_title">Error</string>
 </resources>

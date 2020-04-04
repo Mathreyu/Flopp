@@ -40,11 +40,15 @@ class VideoGameDetailFragment : Fragment() {
             if (gameItem != null) {
                 gameTitle.text = gameItem.name
                 gameDescription.text = gameItem.description
-                Glide.with(view).load(gameItem.backgroundImage).apply(glideOptions)
+                Glide.with(view)
+                    .load(gameItem.backgroundImage)
+                    .apply(glideOptions)
                     .into(gameBackground)
             } else {
-                Builder(context).setMessage("No data stored and no internet connection")
-                    .setTitle("Error").setNegativeButton("dismiss") { dialog, _ ->
+                Builder(context, R.style.DialogTheme)
+                    .setTitle(getString(R.string.no_connection_error_title))
+                    .setMessage(getString(R.string.no_connection_error_message))
+                    .setNegativeButton("dismiss") { dialog, _ ->
                         activity?.onBackPressed()
                         dialog.dismiss()
                     }.create().show()
