@@ -18,7 +18,6 @@ class VideoGamesAdapter(
     private val listener: (VideoGameLight) -> Unit
 ) : ListAdapter<VideoGameLight, VideoGamesAdapter.VideoGameHolder>(DiffCallback()) {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoGameHolder {
         return VideoGameHolder(
             LayoutInflater
@@ -36,22 +35,22 @@ class VideoGamesAdapter(
     }
 
     class VideoGameHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private var glideOptions : RequestOptions = RequestOptions()
+            .dontTransform()
+            .placeholder(R.drawable.ic_sync_problem_black_24dp)
+            .error(R.drawable.ic_sync_problem_black_24dp)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .priority(Priority.HIGH)
+
         fun bind(item: VideoGameLight, action: (VideoGameLight) -> Unit) = with(itemView) {
             gameName.text = item.name
             metacriticScore.text = "Metacritic Score: ${item.metacriticScore}"
-
-            val glideOptions = RequestOptions()
-                .centerCrop()
-                .placeholder(R.drawable.ic_sync_problem_black_24dp)
-                .error(R.drawable.ic_sync_problem_black_24dp)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .priority(Priority.HIGH);
 
             Glide.with(itemView)
                 .load(item.backgroundImage)
                 .apply(glideOptions)
                 .into(gameImage)
-                .onLoadFailed(resources.getDrawable(R.drawable.ic_launcher_background, null))
+//                .onLoadFailed(resources.getDrawable(R.drawable.ic_launcher_background, null))
 
             itemView.setOnClickListener {
                 action(item)

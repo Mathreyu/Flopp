@@ -66,7 +66,6 @@ class FloppActivity : FragmentActivity() {
         }
 
         transaction.commit()
-
         return true
     }
 }
