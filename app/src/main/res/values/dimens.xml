@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="game_title_text_sizecard">20sp</dimen>
+    <dimen name="game_score_text_size">14sp</dimen>
+    <dimen name="base_margin">10dp</dimen>
+    <dimen name="videogame_title_text_size">17sp</dimen>
+    <dimen name="game_description_text_size">14sp</dimen>
+</resources>
