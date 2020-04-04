@@ -37,8 +37,9 @@ class VideoGamesAdapter(
     class VideoGameHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private var glideOptions : RequestOptions = RequestOptions()
             .dontTransform()
-            .placeholder(R.drawable.ic_sync_problem_black_24dp)
-            .error(R.drawable.ic_sync_problem_black_24dp)
+            .centerCrop()
+            .placeholder(itemView.context.resources.getDrawable(R.drawable.error_loading, null))
+            .error(itemView.context.resources.getDrawable(R.drawable.error_loading, null))
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .priority(Priority.HIGH)
 

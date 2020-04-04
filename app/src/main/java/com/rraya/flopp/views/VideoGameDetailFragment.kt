@@ -32,7 +32,7 @@ class VideoGameDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val glideOptions = RequestOptions()
-            .error(R.drawable.ic_sync_problem_black_24dp)
+            .error(resources.getDrawable(R.drawable.error_loading, null))
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .priority(Priority.HIGH);
 
